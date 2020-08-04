@@ -1,12 +1,15 @@
 .section-head{
-    box-shadow:5px 2px tomato;
-    background-color: #96a3bb;
+    
+    box-shadow:2px 3px  #96a3bb;
     display: flex;
     justify-content: space-around;
     margin-bottom: 2px;
 }
 .title{
+    text-decoration: none;
+    border: none;
     font-size: 1rem;
+    width: 400px;
 }
 .subTitle{
     font-size: 0.8rem;

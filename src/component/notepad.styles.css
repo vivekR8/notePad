@@ -2,13 +2,16 @@
 .section{
     height: auto;
     width:30%;
-    border: 2px solid black;
+    border: 2px solid #ffffff;
+    padding: 2px 3px;
     cursor: pointer;
+    overflow-y: auto;
 }
 .notes{
     height:auto;
     width:70%;
-    border: 20px solid red;
+    border: 2px solid #ffffff;
+    background:#dfd3d3 ;
     overflow: hidden;
     display: flex;
     flex-direction: column;

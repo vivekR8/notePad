@@ -1,12 +1,18 @@
 .heading{
+    text-decoration: none;
     width:100%;
     height:10%;
     padding-bottom: 20px;
     font-size: 30px;
     display: flex;
-    text-align: center;;
+    text-align: center;
+    background-color: #fcfcb6;
 }
 .content{
+    margin-top: 2px solid grey;
     height: 80%;
     width: 100%;
+    background-image: url(https://garden.spoonflower.com/c/3375437/p/f/m/XvRzGXgW42R-VGEUUQ06b-4YqkfacpMfeBnV5PaoNN50VqoddRrcl0n0/3375437-solid-pale-pastel-yellow-green-eefdd6-by-weavingmajor.jpg);
+    background-size: initial;
+    overflow-y: auto;
 }
