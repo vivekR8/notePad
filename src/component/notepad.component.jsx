@@ -9,28 +9,38 @@ class Notepad extends React.Component{
         this.state={
             notesHead:'',
             data:'',
-            text:'CREATE NEW NOTE'
+            text:'CREATE NEW NOTE',
+            list:''
         }
     }
+   
     onClickChange=(e,data,notesHead)=>{
+        // console.log('onclickchnage',e.target);
         if (data)
         {this.setState({text:"UPDATE"})}
         else{this.setState({text:"CREATE NEW NOTE"})}
         this.setState({data:data,notesHead:notesHead})
-        console.log('notepad',data);
+        //console.log('notepad',data);
     }
     searchfield = (inputText)=>{
-        console.log(inputText.value)
-        console.log(Object.keys(sessionStorage).map(item=>(item[0])));
+        //console.log(inputText)
+        let copyList=Object.keys(sessionStorage).map(item=>((item)))
+        
+        let filteredlist = copyList.filter(item=> item.includes(inputText))
+        this.setState({list:filteredlist})
+        
+
     }
     render(){
-        const {notesHead,data,text} = this.state;
+        const {notesHead,data,text,list} = this.state;
+       
         return(
             <div className='container'>
-                <Section searchfield={this.searchfield} onClickFuntion={this.onClickChange}/>
+                <Section showList={list} searchfield={this.searchfield} onClickFuntion={this.onClickChange}/>
                 <SectionNotes 
                  text={text}
-                 data={data} notesHead={notesHead}/>
+                 data={data} 
+                 notesHead={notesHead}/>
             </div>
         );
     }

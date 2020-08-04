@@ -11,6 +11,16 @@ class sectionNotes extends React.Component{
             isUpdate: false
         }
     }
+    static getDerivedStateFromProps(props,state){
+        if(props.notesHead){
+            if(props.notesHead !==state.heading)
+            return{
+                heading:'',
+                content:''
+            }
+        }
+        return null;
+    }
     // handleChange = (e)=>{
     //     //console.log('',e.target.value)
     //     this.setState({heading:this.props.notesHead,content:this.props.data})
@@ -21,8 +31,18 @@ class sectionNotes extends React.Component{
     //     this.setState({[name]:newName})
 
     // }
+    // componentDidMount(){
+    //     console.log('componenetdidmount')
+    //     this.setState({heading:'',
+    //     content:''})
+    // }
+    
     handleChange = (e)=>{
+        //console.log('heading->',this.state.heading,'content->',this.state.content,'props->',this.props)
+        console.log('props noteshead',this.props.notesHead);
+        if(this.props.notesHead ){
         this.setState({heading:this.props.notesHead,content:this.props.data})
+        }
         const{name,value} = e.target;
         this.setState({[name]:value})
         console.log('handlechange',this.state.heading,this.state.content);
@@ -34,15 +54,17 @@ class sectionNotes extends React.Component{
         if(sessionStorage.getItem(`${this.props.notesHead}`)){
             sessionStorage.setItem(`${this.props.notesHead}`,content);
         }else{
-            console.log('nothing',sessionStorage)
+        sessionStorage.setItem(`${heading}`,content);
+        console.log(Object.keys(sessionStorage));
+        console.log(sessionStorage);   
         }
-        // const {heading,content} =this.state;
-        // sessionStorage.setItem(`${heading}`,content);
-        // console.log(Object.keys(sessionStorage));
-        //console.log(sessionStorage);   
     };
+    valueChnage = ()=>{
+        console.log('state->',this.state.heading,'props->',this.props.notesHead)
+    }
     
     render(){
+        console.log('render');
         return(
         <div className='notes'>
 
@@ -50,8 +72,9 @@ class sectionNotes extends React.Component{
                 className='heading'
                 type='text' 
                 name = 'heading'
-                value = {
-                        (this.state.heading)? (this.state.heading):(this.props.notesHead)
+                value = {(this.state.heading )? (this.state.heading):(this.props.notesHead)
+                    
+                    
                         
                         } 
                 onChange={this.handleChange}
@@ -61,7 +84,7 @@ class sectionNotes extends React.Component{
                 rows="50"
                 name = 'content' 
                 value={
-                    (this.state.content)? (this.state.content):(this.props.data) 
+                    (this.state.content)   ? (this.state.content):(this.props.data)
                     }
                 onChange={this.handleChange}
             />
