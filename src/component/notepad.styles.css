@@ -1,0 +1,17 @@
+
+.section{
+    height: auto;
+    width:30%;
+    border: 2px solid black;
+    cursor: pointer;
+}
+.notes{
+    height:auto;
+    width:70%;
+    border: 20px solid red;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+    
+   

@@ -1,0 +1,14 @@
+.section-head{
+    box-shadow:5px 2px tomato;
+    background-color: #96a3bb;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2px;
+}
+.title{
+    font-size: 1rem;
+}
+.subTitle{
+    font-size: 0.8rem;
+    margin-bottom: 0em;
+}
